@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ShoppingBag, Heart } from "lucide-react";
+import AboutSection from "./AboutSection";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

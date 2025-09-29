@@ -94,25 +94,25 @@ const ContactSection = () => {
     {
       name: "Instagram",
       icon: <Instagram className="w-6 h-6" />,
-      url: "#",
+      url: "https://www.instagram.com/ashie_creation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       followers: "12.5K",
     },
     {
       name: "Facebook",
       icon: <Facebook className="w-6 h-6" />,
-      url: "#",
+      url: "https://www.instagram.com/ashie_creation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       followers: "8.2K",
     },
     {
       name: "YouTube",
       icon: <Youtube className="w-6 h-6" />,
-      url: "#",
+      url: "https://www.instagram.com/ashie_creation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       followers: "5.8K",
     },
     {
       name: "WhatsApp",
       icon: <MessageCircle className="w-6 h-6" />,
-      url: "#",
+      url: "https://www.instagram.com/ashie_creation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       followers: "Chat",
     },
   ];
@@ -120,9 +120,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-20 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
-          <p className="text-gold font-medium text-lg mb-4">Get In Touch</p>
           <h2 className="text-4xl lg:text-5xl font-playfair font-bold text-gradient mb-6">
             Contact Us
           </h2>
@@ -135,7 +133,7 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Information */}
           <div className="space-y-8">
-            <div className="space-y-6">
+            {/* <div className="space-y-6">
               <h3 className="text-2xl font-playfair font-bold text-cream">
                 Let's Connect
               </h3>
@@ -143,31 +141,32 @@ const ContactSection = () => {
                 Whether you're looking for a custom Ganesh idol, have questions about our 
                 eco-friendly process, or want to visit our workshop, we're here to help.
               </p>
-            </div>
+            </div> */}
 
             {/* Contact Cards */}
-            <div className="space-y-4">
-              {contactInfo.map((info, index) => (
-                <div
-                  key={index}
-                  className="premium-card p-6 flex items-start space-x-4 animate-slide-up"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-accent rounded-lg flex items-center justify-center text-midnight">
-                    {info.icon}
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-cream mb-2">{info.title}</h4>
-                    <p className="text-cream/70 text-sm whitespace-pre-line mb-3">
-                      {info.details}
-                    </p>
-                    <button className="text-gold text-sm font-medium hover:text-copper transition-colors">
-                      {info.action} →
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
+         <div className="premium-card p-4 bg-midnight/90 rounded-lg space-y-3">
+  <h4 className="font-semibold text-cream mb-2">Contact Us</h4>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-cream/80 text-sm">
+    <div className="flex items-start space-x-2">
+      <Phone className="w-5 h-5 mt-1" />
+      <div>
+        <p className="font-medium text-cream">Call Us</p>
+        <p className="whitespace-pre-line">+91 000000000</p>
+      </div>
+    </div>
+    <div className="flex items-start space-x-2">
+      <Mail className="w-5 h-5 mt-1" />
+      <div>
+        <p className="font-medium text-cream">Email Us</p>
+        <p className="whitespace-pre-line">info@ashokcreations.com</p>
+      </div>
+    </div>
+  </div>
+  <button className="mt-3 w-full text-center text-gold font-medium hover:text-copper transition-colors">
+    Get in Touch →
+  </button>
+</div>
+
 
             {/* Social Media */}
             <div className="space-y-6">
@@ -193,152 +192,59 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="premium-card p-8 animate-fade-in">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <h3 className="text-xl font-playfair font-semibold text-cream mb-6">
-                  Send us a Message
-                </h3>
-              </div>
+          <div className="premium-card p-6 bg-midnight rounded-lg max-w-md mx-auto animate-fade-in">
+  <h3 className="text-lg font-semibold text-cream mb-4">Send us a Message</h3>
+  <form onSubmit={handleSubmit} className="space-y-4">
+    
+    {/* Name */}
+    <input
+      type="text"
+      name="name"
+      value={formData.name}
+      onChange={handleInputChange}
+      placeholder="Full Name *"
+      className={`w-full px-3 py-2 bg-charcoal border rounded text-cream focus:outline-none focus:ring-2 focus:ring-gold ${
+        formErrors.name ? 'border-red-500' : 'border-gold/20'
+      }`}
+    />
+    
+    {/* Email */}
+    <input
+      type="email"
+      name="email"
+      value={formData.email}
+      onChange={handleInputChange}
+      placeholder="Email Address *"
+      className={`w-full px-3 py-2 bg-charcoal border rounded text-cream focus:outline-none focus:ring-2 focus:ring-gold ${
+        formErrors.email ? 'border-red-500' : 'border-gold/20'
+      }`}
+    />
 
-              {/* Inquiry Type */}
-              <div>
-                <label className="block text-cream font-medium mb-2">
-                  Inquiry Type
-                </label>
-                <select
-                  name="inquiryType"
-                  value={formData.inquiryType}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-charcoal border border-gold/20 rounded-lg text-cream focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
-                >
-                  <option value="general">General Inquiry</option>
-                  <option value="custom">Custom Order</option>
-                  <option value="bulk">Bulk Order</option>
-                  <option value="workshop">Workshop Visit</option>
-                  <option value="collaboration">Collaboration</option>
-                </select>
-              </div>
+    {/* Message */}
+    <textarea
+      name="message"
+      value={formData.message}
+      onChange={handleInputChange}
+      rows={4}
+      placeholder="Your Message *"
+      className={`w-full px-3 py-2 bg-charcoal border rounded text-cream focus:outline-none focus:ring-2 focus:ring-gold resize-none ${
+        formErrors.message ? 'border-red-500' : 'border-gold/20'
+      }`}
+    />
 
-              {/* Name and Email */}
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-cream font-medium mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-charcoal border rounded-lg text-cream focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent ${
-                      formErrors.name ? 'border-red-500' : 'border-gold/20'
-                    }`}
-                    placeholder="Your full name"
-                  />
-                  {formErrors.name && (
-                    <p className="text-red-400 text-sm mt-1">{formErrors.name}</p>
-                  )}
-                </div>
-                <div>
-                  <label className="block text-cream font-medium mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-charcoal border rounded-lg text-cream focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent ${
-                      formErrors.email ? 'border-red-500' : 'border-gold/20'
-                    }`}
-                    placeholder="your.email@example.com"
-                  />
-                  {formErrors.email && (
-                    <p className="text-red-400 text-sm mt-1">{formErrors.email}</p>
-                  )}
-                </div>
-              </div>
+    {/* Submit */}
+    <button
+      type="submit"
+      disabled={isSubmitting}
+      className={`w-full py-2 rounded bg-gold text-midnight font-semibold hover:bg-copper transition-colors ${
+        isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+      }`}
+    >
+      {isSubmitting ? "Sending..." : "Send Message"}
+    </button>
+  </form>
+</div>
 
-              {/* Phone and Subject */}
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-cream font-medium mb-2">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-charcoal border rounded-lg text-cream focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent ${
-                      formErrors.phone ? 'border-red-500' : 'border-gold/20'
-                    }`}
-                    placeholder="+91 98765 43210"
-                  />
-                  {formErrors.phone && (
-                    <p className="text-red-400 text-sm mt-1">{formErrors.phone}</p>
-                  )}
-                </div>
-                <div>
-                  <label className="block text-cream font-medium mb-2">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-charcoal border border-gold/20 rounded-lg text-cream focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
-                    placeholder="What's this about?"
-                  />
-                </div>
-              </div>
-
-              {/* Message */}
-              <div>
-                <label className="block text-cream font-medium mb-2">
-                  Message *
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={5}
-                  className={`w-full px-4 py-3 bg-charcoal border rounded-lg text-cream focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent resize-none ${
-                    formErrors.message ? 'border-red-500' : 'border-gold/20'
-                  }`}
-                  placeholder="Tell us about your requirements..."
-                />
-                {formErrors.message && (
-                  <p className="text-red-400 text-sm mt-1">{formErrors.message}</p>
-                )}
-              </div>
-
-              {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`w-full py-4 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 ${
-                  isSubmitting
-                    ? 'bg-charcoal text-cream/50 cursor-not-allowed'
-                    : 'btn-hero hover:scale-105'
-                }`}
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-cream/30 border-t-cream rounded-full animate-spin" />
-                    <span>Sending...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    <span>Send Message</span>
-                  </>
-                )}
-              </button>
-            </form>
-          </div>
         </div>
       </div>
     </section>

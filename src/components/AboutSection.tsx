@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Award, Users, Heart, Leaf } from "lucide-react";
-import craftsmanHands from "@/assets/craftsman-hands.jpg";
+import craftsmanHands from "@/assets/creation.pnj.jpg";
 
 const AboutSection = () => {
   const [animatedNumbers, setAnimatedNumbers] = useState({
